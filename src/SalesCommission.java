@@ -17,11 +17,66 @@ Total Sales: $65,000.00
 Total Earnings: $1184.38
 
  */
+/*
+get inputs
+calculate commission
+calculate hourly  wage
+display results
+ */
+
+import javax.swing.*;
+import java.text.DecimalFormat;
 
 public class SalesCommission {
 
     public static void main(String[] args) {
+        double hourlyRate = getInput("What is your hourly wage: ");
+        double hoursWorked = getInput("How many hours did you work this week: ");
+       double commissionPercentage = getInput("Commission percent is: ");
+        double sales = getInput("How many sales did you make: ");
+
+        double hourlyPay = hourlyPay(hourlyRate,hoursWorked);
+        double commissionPercentage =commissionPercentage(sales,commissionPercentage);
+
+
+        outPut(totalEarnings );
+    }
+
+
+
+    public static double getInput(String prompt){
+
+        return Double.parseDouble(JOptionPane.showInputDialog(prompt));
+
 
     }
+
+
+
+
+    public static double hourlyPay(double hourlyRate, double hoursWorked){
+        return (hourlyRate * hoursWorked );
+
+
+ }
+
+
+
+    public static double commissionPercentage( double commissionPercentage, double sales ){
+
+        return (sales * commissionPercentage/100.0);
+
+
+    }
+
+
+    public static void outPut(double totalEarnings){
+
+        DecimalFormat round = new DecimalFormat("#,##.00");
+            JOptionPane.showMessageDialog(null, "Your total earning is: " + round.format(totalEarnings));
+
+    }
+
+
 
 }
